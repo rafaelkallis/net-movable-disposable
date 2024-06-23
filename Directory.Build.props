@@ -1,6 +1,5 @@
 <Project>
   <PropertyGroup>
-    <TargetFrameworks>net6.0;net8.0</TargetFrameworks>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <LangVersion>latest</LangVersion>
@@ -10,25 +9,19 @@
 
 
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <AnalysisLevel>latest-recommended</AnalysisLevel>
-    <NoWarn>$(NoWarn);CA1848</NoWarn>
+    <AnalysisLevel>latest-all</AnalysisLevel>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-
-    <!-- We have lots of missing/problematic documentation in 6.0, suppress those warnings. Fixed in 7.0. -->
-<!--    <NoWarn>$(NoWarn);CS1572;CS1573;CS1574;CS1591</NoWarn>-->
-<!--    <SuppressNETCoreSdkPreviewMessage>true</SuppressNETCoreSdkPreviewMessage>-->
-<!--    <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)Npgsql.snk</AssemblyOriginatorKeyFile>-->
-<!--    <SignAssembly>true</SignAssembly>-->
-<!--    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>-->
-<!--    <GenerateDocumentationFile>true</GenerateDocumentationFile>-->
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
 
     <Authors>Rafael Kallis</Authors>
     <Copyright>Copyright 2024 (c) Rafael Kallis</Copyright>
     <Company>Rafael Kallis Consulting</Company>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
-<!--    <PackageLicenseExpression>PostgreSQL</PackageLicenseExpression>-->
-    <PackageProjectUrl>https://github.com/rafaelkallis/library</PackageProjectUrl>
+    <PackageLicenseExpression>GPL-3.0-only</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/rafaelkallis/net-movable-disposable</PackageProjectUrl>
 <!--    <PackageIcon>postgresql.png</PackageIcon>-->
+    <PackageTags>disposable</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>

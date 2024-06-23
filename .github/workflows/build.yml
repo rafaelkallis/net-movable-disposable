@@ -15,12 +15,7 @@ env:
 
 jobs:
   build:
-    strategy:
-      matrix: 
-        os: [ubuntu-22.04, ubuntu-20.04]
-        dotnet: [6.0.x, 8.0.x]
-    
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-22.04
     
     steps:
     - uses: actions/checkout@v4
@@ -28,7 +23,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: ${{ matrix.dotnet }}
+        dotnet-version: 8.0.x
         cache: true
         cache-dependency-path: '**/packages.lock.json'
     
@@ -55,30 +50,32 @@ jobs:
     environment: nuget.org
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+    - name: Checkout
+      uses: actions/checkout@v4
 
-      - name: Setup .NET Core SDK
-        uses: actions/setup-dotnet@v4
-#        with:
-#          dotnet-version: 8.0x
+    - name: Setup .NET Core SDK
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
+        cache: true
+        cache-dependency-path: '**/packages.lock.json'
 
-      - name: Pack
-        run: >-
-          dotnet pack
-          --configuration Release
-          --property:PackageOutputPath="$PWD/nupkgs"
-          -p:ContinuousIntegrationBuild=true
+    - name: Pack
+      run: >-
+        dotnet pack
+        --configuration Release
+        --property:PackageOutputPath="$PWD/nupkgs"
+        -p:ContinuousIntegrationBuild=true
 
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          path: nupkgs
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        path: nupkgs
 
-      - name: Publish to nuget.org
-        run: >-
-          dotnet nuget push "*.nupkg"
-          --api-key ${{ secrets.NUGET_ORG_API_KEY }} 
-          --source https://api.nuget.org/v3/index.json
-          --skip-duplicate
-        working-directory: nupkgs
+    - name: Publish to nuget.org
+      run: >-
+        dotnet nuget push "*.nupkg"
+        --api-key ${{ secrets.NUGET_ORG_API_KEY }} 
+        --source https://api.nuget.org/v3/index.json
+        --skip-duplicate
+      working-directory: nupkgs
