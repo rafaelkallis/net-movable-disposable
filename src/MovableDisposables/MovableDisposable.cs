@@ -1,5 +1,3 @@
-using JetBrains.Annotations;
-
 namespace RafaelKallis.MovableDisposables;
 
 /// <summary>
@@ -22,6 +20,7 @@ namespace RafaelKallis.MovableDisposables;
 /// }
 /// </code>
 /// </example>
+[PublicAPI]
 public struct MovableDisposable<T> : IDisposable, IEquatable<MovableDisposable<T>> where T : class, IDisposable
 {
     private T? _value;
@@ -37,7 +36,7 @@ public struct MovableDisposable<T> : IDisposable, IEquatable<MovableDisposable<T
     /// <summary>
     /// The underlying resource.
     /// </summary>
-    public T Value =>
+    public readonly T Value =>
         _value ?? throw new InvalidOperationException("The resource has been moved or disposed.");
 
     /// <summary>
@@ -77,21 +76,21 @@ public struct MovableDisposable<T> : IDisposable, IEquatable<MovableDisposable<T
 #pragma warning restore CA2225
 
     /// <inheritdoc />
-    public override bool Equals(object? obj) =>
+    public override readonly bool Equals(object? obj) =>
         obj is MovableDisposable<T> other && Equals(other);
 
     /// <summary>
     /// Indicates whether this instance and a specified <see cref="MovableDisposable{T}"/> are equal.
     /// </summary>
-    public bool Equals(MovableDisposable<T> other) =>
+    public readonly bool Equals(MovableDisposable<T> other) =>
         EqualityComparer<MovableDisposable<T>>.Default.Equals(this, other);
 
     /// <inheritdoc />
-    public override int GetHashCode() =>
+    public override readonly int GetHashCode() =>
         EqualityComparer<MovableDisposable<T>>.Default.GetHashCode(this);
 
     /// <inheritdoc />
-    public override string ToString() =>
+    public override readonly string ToString() =>
         $"{nameof(MovableDisposable<T>)}[{_value}]";
 
     /// <inheritdoc cref="Equals(MovableDisposable{T})" />

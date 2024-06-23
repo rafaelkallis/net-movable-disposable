@@ -1,10 +1,9 @@
-using JetBrains.Annotations;
-
 namespace RafaelKallis.MovableDisposables;
 
 /// <summary>
 /// Extension methods for <see cref="MovableAsyncDisposable{T}"/>.
 /// </summary>
+[PublicAPI]
 public static class MovableDisposableExtensions
 {
     /// <summary>

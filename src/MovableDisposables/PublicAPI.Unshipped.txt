@@ -1,0 +1,30 @@
+#nullable enable
+override RafaelKallis.MovableDisposables.MovableAsyncDisposable<T>.ToString() -> string!
+override RafaelKallis.MovableDisposables.MovableDisposable<T>.Equals(object? obj) -> bool
+override RafaelKallis.MovableDisposables.MovableDisposable<T>.GetHashCode() -> int
+override RafaelKallis.MovableDisposables.MovableDisposable<T>.ToString() -> string!
+RafaelKallis.MovableDisposables.MovableAsyncDisposable<T>
+RafaelKallis.MovableDisposables.MovableAsyncDisposable<T>.DisposeAsync() -> System.Threading.Tasks.ValueTask
+RafaelKallis.MovableDisposables.MovableAsyncDisposable<T>.HasValue.get -> bool
+RafaelKallis.MovableDisposables.MovableAsyncDisposable<T>.MovableAsyncDisposable(T! value) -> void
+RafaelKallis.MovableDisposables.MovableAsyncDisposable<T>.Move() -> T!
+RafaelKallis.MovableDisposables.MovableAsyncDisposable<T>.Value.get -> T!
+RafaelKallis.MovableDisposables.MovableDisposable<T>
+RafaelKallis.MovableDisposables.MovableDisposable<T>.Dispose() -> void
+RafaelKallis.MovableDisposables.MovableDisposable<T>.Equals(RafaelKallis.MovableDisposables.MovableDisposable<T!> other) -> bool
+RafaelKallis.MovableDisposables.MovableDisposable<T>.HasValue.get -> bool
+RafaelKallis.MovableDisposables.MovableDisposable<T>.MovableDisposable() -> void
+RafaelKallis.MovableDisposables.MovableDisposable<T>.MovableDisposable(T! value) -> void
+RafaelKallis.MovableDisposables.MovableDisposable<T>.Move() -> T!
+RafaelKallis.MovableDisposables.MovableDisposable<T>.Value.get -> T!
+RafaelKallis.MovableDisposables.MovableDisposableExtensions
+static RafaelKallis.MovableDisposables.MovableAsyncDisposable<T>.implicit operator T!(RafaelKallis.MovableDisposables.MovableAsyncDisposable<T!>! owned) -> T!
+static RafaelKallis.MovableDisposables.MovableDisposable<T>.implicit operator T!(RafaelKallis.MovableDisposables.MovableDisposable<T!> owned) -> T!
+static RafaelKallis.MovableDisposables.MovableDisposable<T>.operator !=(RafaelKallis.MovableDisposables.MovableDisposable<T!> left, RafaelKallis.MovableDisposables.MovableDisposable<T!> right) -> bool
+static RafaelKallis.MovableDisposables.MovableDisposable<T>.operator ==(RafaelKallis.MovableDisposables.MovableDisposable<T!> left, RafaelKallis.MovableDisposables.MovableDisposable<T!> right) -> bool
+static RafaelKallis.MovableDisposables.MovableDisposableExtensions.ToAsyncMovable<T>(this System.Threading.Tasks.Task<T!>! resourceTask) -> System.Threading.Tasks.Task<RafaelKallis.MovableDisposables.MovableAsyncDisposable<T!>!>!
+static RafaelKallis.MovableDisposables.MovableDisposableExtensions.ToAsyncMovable<T>(this System.Threading.Tasks.ValueTask<T!> resourceValueTask) -> System.Threading.Tasks.ValueTask<RafaelKallis.MovableDisposables.MovableAsyncDisposable<T!>!>
+static RafaelKallis.MovableDisposables.MovableDisposableExtensions.ToAsyncMovable<T>(this T! resource) -> RafaelKallis.MovableDisposables.MovableAsyncDisposable<T!>!
+static RafaelKallis.MovableDisposables.MovableDisposableExtensions.ToMovable<T>(this System.Threading.Tasks.Task<T!>! resourceTask) -> System.Threading.Tasks.Task<RafaelKallis.MovableDisposables.MovableDisposable<T!>>!
+static RafaelKallis.MovableDisposables.MovableDisposableExtensions.ToMovable<T>(this System.Threading.Tasks.ValueTask<T!> resourceValueTask) -> System.Threading.Tasks.ValueTask<RafaelKallis.MovableDisposables.MovableDisposable<T!>>
+static RafaelKallis.MovableDisposables.MovableDisposableExtensions.ToMovable<T>(this T! resource) -> RafaelKallis.MovableDisposables.MovableDisposable<T!>

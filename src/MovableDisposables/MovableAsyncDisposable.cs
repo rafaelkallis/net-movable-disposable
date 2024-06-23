@@ -1,5 +1,3 @@
-using JetBrains.Annotations;
-
 namespace RafaelKallis.MovableDisposables;
 
 /// <summary>
@@ -22,6 +20,7 @@ namespace RafaelKallis.MovableDisposables;
 /// }
 /// </code>
 /// </example>
+[PublicAPI]
 public sealed class MovableAsyncDisposable<T> : IAsyncDisposable where T : class, IAsyncDisposable
 {
     private T? _value;

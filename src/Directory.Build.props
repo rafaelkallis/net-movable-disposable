@@ -9,6 +9,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="JetBrains.Annotations" Version="2023.3.0" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="All" Version="8.0.0" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Using Include="JetBrains.Annotations" />
   </ItemGroup>
 </Project>
